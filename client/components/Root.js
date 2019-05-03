@@ -1,9 +1,13 @@
 import React from 'react'
-import Home from './Home'
+import NavBar from './NavBar'
+import Flight from './Flight'
 
 const Root = () => {
   return (
-    <Home />
+    <div>
+      <NavBar />
+      <Flight />
+    </div>
   )
 }
 

@@ -11,7 +11,7 @@ const Home = () => {
         <div>
             <Container maxWidth={1440} >
                 <Box p={3} m={-2} color='white' bg='blue'>
-                    <Text fontSize={14} bold>Discover new deals every day! Only at Priceline.</Text>
+                    <Text fontSize={14} bold>Find the best flight deals. Book your trip with us today!</Text>
                 </Box>
                 {/* <Banner showIcon={false} bg='white' px={3} py={0} my={8}> */}
                     <Flex px={2} px={3} py={2} my={18}>
@@ -23,12 +23,12 @@ const Home = () => {
                             <Text mt={1} mx={2} fontSize={14} color='gray' bold>Cruises</Text>
                             <Text mt={1} mx={2} fontSize={14} color='gray' bold>Groups</Text>
                             <Text mt={1} ml='auto' mr={2} fontSize={14} color='blue' bold>Sign In</Text>
-                            <Icon mr={2} mt={1} name='chevronDown' color='blue'/>
-                            <Icon mr={2} name='bag' color='blue'/>
+                            <Icon mr={2} mt={1} name='ChevronDown' color='blue'/>
+                            <Icon mr={2} name='Bag' color='blue'/>
                             <Text mt={1} mr={2} fontSize={14} color='blue' bold>My Trips</Text>
-                            <Icon mr={2} mt={1} name='chevronDown' color='blue'/>
+                            <Icon mr={2} mt={1} name='ChevronDown' color='blue'/>
                             <Text mt={1} mr={2} fontSize={14} color='blue' bold>Help</Text>
-                            <Icon mr={2} mt={1} name='chevronDown' color='blue'/>
+                            <Icon mr={2} mt={1} name='ChevronDown' color='blue'/>
                     </Flex>
                 {/* </Banner> */}
             </Container>
