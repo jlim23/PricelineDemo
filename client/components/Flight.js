@@ -33,6 +33,7 @@ const StyledText = styled(Text)`
     margin: -70px 0 0px 72px;
     text-shadow: #000000 0px 0px 5px
 `
+
 const Flight = () => {
     return (
         <div>
