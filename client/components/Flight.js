@@ -5,7 +5,7 @@ import styled, {css} from 'styled-components'
 const StyledHeading = styled(Heading)`
     width: auto;
     text-shadow: #000000 0px 0px 5px;
-    margin: 70px
+    margin: 35px 70px 70px 70px
 `
 const StyledBackground = styled(BackgroundImage)`
     margin: -8px
