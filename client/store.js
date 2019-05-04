@@ -4,7 +4,22 @@ import axios from 'axios'
 import loggingMiddleware from 'redux-logger' // https://github.com/evgenyrodionov/redux-logger
 import thunkMiddleware from 'redux-thunk' // https://github.com/gaearon/redux-thunk
 
-const initialState = {}
+const initialState = {
+  flightDetails: {
+    departure: '',
+    arrival: '',
+    leaving: '',
+    returning: '',
+    passengers: 1,
+    seat: 'Economy'
+  }
+}
+
+// Action types
+
+// Action creators
+
+// Thunk creators
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {

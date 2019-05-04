@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
-import {Box, Flex, Container, Icon, BlockLink, Banner, Heading, Text} from 'pcln-design-system'
+import {Box, Flex, Container, Icon, Heading, Text} from 'pcln-design-system'
 
 const StyledLink = styled(Link)`
     text-decoration: none
 `
-const Home = () => {
+const NavBar = () => {
     return (
         <div>
             <Container maxWidth={1440} >
@@ -36,4 +36,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default NavBar;
