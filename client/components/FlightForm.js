@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Container, Flex, FormField, Icon, Input, Label, Button} from 'pcln-design-system'
+import {Box, Container, Flex, FormField, Icon, Input, Label, Button, Select} from 'pcln-design-system'
 import styled, {css} from 'styled-components'
 
 const Tabs = styled(Container)`
@@ -23,6 +23,7 @@ const StyledBox = styled(Box)`
 `
 
 const StyledButton = styled(Button)`
+    width: 100%;
     background-color: #0a0;
     cursor: pointer;
 
@@ -32,6 +33,15 @@ const StyledButton = styled(Button)`
 `
 const StyledInput = styled(Input)`
     width: 371px;
+    padding: 10px;
+
+    ${props => props.primary && css`
+        width: 140px
+    `}
+`
+
+const StyledSelect = styled(Select)`
+    width: 300px;
     padding: 10px
 `
 
@@ -50,7 +60,7 @@ const StyledLabel = styled(Label)`
 const FlightForm = props => {
     return (
         <div>
-            <Tabs maxWidth={800} >
+            <Tabs maxWidth={813} >
                 <StyledBox primary p={3} mx={1} textAlign='center' color='blue' bg='lightBlue'>
                     HOTELS
                 </StyledBox>
@@ -80,9 +90,10 @@ const FlightForm = props => {
                         <StyledInput
                             id='departure'
                             name='departure'
-                            defaultValue=''
+                            value={props.state.departure}
                             placeholder='New York City, NY (JFK)'
                             m={2}
+                            onChange={props.handleChange}
                         />
                     </FormField>
                     <FormField>
@@ -91,13 +102,69 @@ const FlightForm = props => {
                         <StyledInput
                             id='arrival'
                             name='arrival'
-                            defaultValue=''
+                            value={props.state.arrival}
                             placeholder='New Haven, CT (HVN)'
                             m={2}
+                            onChange={props.handleChange}
                         />
                     </FormField>
                 </Flex>
-                <StyledButton size='large' width={1}>Find your flight</StyledButton>
+                <Flex>
+                    <FormField>
+                        <StyledLabel htmlFor='leaving'>Leaving</StyledLabel>
+                        <Icon name='Calendar' size='20' color='blue'/>
+                        <StyledInput
+                            id='leaving'
+                            name='leaving'
+                            value={props.state.leaving}
+                            placeholder='05/04/2019'
+                            m={2}
+                            onChange={props.handleChange}
+                        />
+                    </FormField>
+                    <FormField>
+                        <StyledLabel htmlFor='returning'>Returning</StyledLabel>
+                        <Icon name='Calendar' size='20' color='blue'/>
+                        <StyledInput
+                            id='returning'
+                            name='returning'
+                            value={props.state.returning}
+                            placeholder='05/09/2019'
+                            m={2}
+                            onChange={props.handleChange}
+                        />
+                    </FormField>
+                </Flex>
+                <Flex>
+                    <FormField>
+                        <StyledLabel htmlFor='travelers'>Travelers</StyledLabel>
+                        <Icon name='User' size='25' color='blue'/>
+                        <StyledInput primary
+                            id='travelers'
+                            width={1/4}
+                            defaultValue='1 Adult'
+                            m={2}
+                            disabled
+                        />
+                    </FormField>
+                    <FormField>
+                        <StyledLabel htmlFor='seat'>Seat</StyledLabel>
+                        <Icon name='SeatEconomy' size='20' color='blue'/>
+                        <StyledSelect
+                            id='seat'
+                            name='seat'
+                            m={2}
+                            value={props.state.seat}
+                            onChange={props.handleChange}
+                        >
+                            <option>Economy</option>
+                            <option>Premium Economy</option>
+                            <option>Business</option>
+                            <option>First</option>
+                        </StyledSelect>
+                    </FormField>
+                    <StyledButton m={2} size='large'>Find your flight</StyledButton>
+                </Flex>
             </StyledBox>
         </div>
     )

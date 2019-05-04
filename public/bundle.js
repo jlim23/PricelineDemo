@@ -103,10 +103,12 @@ Object.defineProperty(exports, "__esModule", {
 var _templateObject = _taggedTemplateLiteral(['\n    display: flex;\n    margin-left: 110px\n'], ['\n    display: flex;\n    margin-left: 110px\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n    width: 57%;\n    height: 300px;\n    border-top-left-radius: 2px;\n    border-top-right-radius: 2px;\n    letter-spacing: 0.025em;\n\n    ', '\n'], ['\n    width: 57%;\n    height: 300px;\n    border-top-left-radius: 2px;\n    border-top-right-radius: 2px;\n    letter-spacing: 0.025em;\n\n    ', '\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n        width: 100%;\n        height: 52px;\n        font-size: 14px;\n        display: inline-block;\n        font-weight: bold\n    '], ['\n        width: 100%;\n        height: 52px;\n        font-size: 14px;\n        display: inline-block;\n        font-weight: bold\n    ']),
-    _templateObject4 = _taggedTemplateLiteral(['\n    background-color: #0a0;\n    cursor: pointer;\n\n    &:hover {\n        background-color: #060\n    }\n'], ['\n    background-color: #0a0;\n    cursor: pointer;\n\n    &:hover {\n        background-color: #060\n    }\n']),
-    _templateObject5 = _taggedTemplateLiteral(['\n    width: 371px;\n    padding: 10px\n'], ['\n    width: 371px;\n    padding: 10px\n']),
-    _templateObject6 = _taggedTemplateLiteral(['\n    padding-top: 13px;\n\n    ', '\n'], ['\n    padding-top: 13px;\n\n    ', '\n']),
-    _templateObject7 = _taggedTemplateLiteral(['\n        font-size: 12px;\n        font-weight: normal;\n        display: inline-block;\n        letter-spacing: 0.025em;\n        margin-top: -16px\n    '], ['\n        font-size: 12px;\n        font-weight: normal;\n        display: inline-block;\n        letter-spacing: 0.025em;\n        margin-top: -16px\n    ']);
+    _templateObject4 = _taggedTemplateLiteral(['\n    width: 100%;\n    background-color: #0a0;\n    cursor: pointer;\n\n    &:hover {\n        background-color: #060\n    }\n'], ['\n    width: 100%;\n    background-color: #0a0;\n    cursor: pointer;\n\n    &:hover {\n        background-color: #060\n    }\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n    width: 371px;\n    padding: 10px;\n\n    ', '\n'], ['\n    width: 371px;\n    padding: 10px;\n\n    ', '\n']),
+    _templateObject6 = _taggedTemplateLiteral(['\n        width: 140px\n    '], ['\n        width: 140px\n    ']),
+    _templateObject7 = _taggedTemplateLiteral(['\n    width: 300px;\n    padding: 10px\n'], ['\n    width: 300px;\n    padding: 10px\n']),
+    _templateObject8 = _taggedTemplateLiteral(['\n    padding-top: 13px;\n\n    ', '\n'], ['\n    padding-top: 13px;\n\n    ', '\n']),
+    _templateObject9 = _taggedTemplateLiteral(['\n        font-size: 12px;\n        font-weight: normal;\n        display: inline-block;\n        letter-spacing: 0.025em;\n        margin-top: -16px\n    '], ['\n        font-size: 12px;\n        font-weight: normal;\n        display: inline-block;\n        letter-spacing: 0.025em;\n        margin-top: -16px\n    ']);
 
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
@@ -128,10 +130,14 @@ var StyledBox = (0, _styledComponents2.default)(_pclnDesignSystem.Box)(_template
 });
 
 var StyledButton = (0, _styledComponents2.default)(_pclnDesignSystem.Button)(_templateObject4);
-var StyledInput = (0, _styledComponents2.default)(_pclnDesignSystem.Input)(_templateObject5);
+var StyledInput = (0, _styledComponents2.default)(_pclnDesignSystem.Input)(_templateObject5, function (props) {
+    return props.primary && (0, _styledComponents.css)(_templateObject6);
+});
 
-var StyledLabel = (0, _styledComponents2.default)(_pclnDesignSystem.Label)(_templateObject6, function (props) {
-    return props.primary && (0, _styledComponents.css)(_templateObject7);
+var StyledSelect = (0, _styledComponents2.default)(_pclnDesignSystem.Select)(_templateObject7);
+
+var StyledLabel = (0, _styledComponents2.default)(_pclnDesignSystem.Label)(_templateObject8, function (props) {
+    return props.primary && (0, _styledComponents.css)(_templateObject9);
 });
 
 var FlightForm = function FlightForm(props) {
@@ -140,7 +146,7 @@ var FlightForm = function FlightForm(props) {
         null,
         _react2.default.createElement(
             Tabs,
-            { maxWidth: 800 },
+            { maxWidth: 813 },
             _react2.default.createElement(
                 StyledBox,
                 { primary: true, p: 3, mx: 1, textAlign: 'center', color: 'blue', bg: 'lightBlue' },
@@ -192,9 +198,10 @@ var FlightForm = function FlightForm(props) {
                     _react2.default.createElement(StyledInput, {
                         id: 'departure',
                         name: 'departure',
-                        defaultValue: '',
+                        value: props.state.departure,
                         placeholder: 'New York City, NY (JFK)',
-                        m: 2
+                        m: 2,
+                        onChange: props.handleChange
                     })
                 ),
                 _react2.default.createElement(
@@ -209,16 +216,118 @@ var FlightForm = function FlightForm(props) {
                     _react2.default.createElement(StyledInput, {
                         id: 'arrival',
                         name: 'arrival',
-                        defaultValue: '',
+                        value: props.state.arrival,
                         placeholder: 'New Haven, CT (HVN)',
-                        m: 2
+                        m: 2,
+                        onChange: props.handleChange
                     })
                 )
             ),
             _react2.default.createElement(
-                StyledButton,
-                { size: 'large', width: 1 },
-                'Find your flight'
+                _pclnDesignSystem.Flex,
+                null,
+                _react2.default.createElement(
+                    _pclnDesignSystem.FormField,
+                    null,
+                    _react2.default.createElement(
+                        StyledLabel,
+                        { htmlFor: 'leaving' },
+                        'Leaving'
+                    ),
+                    _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'Calendar', size: '20', color: 'blue' }),
+                    _react2.default.createElement(StyledInput, {
+                        id: 'leaving',
+                        name: 'leaving',
+                        value: props.state.leaving,
+                        placeholder: '05/04/2019',
+                        m: 2,
+                        onChange: props.handleChange
+                    })
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.FormField,
+                    null,
+                    _react2.default.createElement(
+                        StyledLabel,
+                        { htmlFor: 'returning' },
+                        'Returning'
+                    ),
+                    _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'Calendar', size: '20', color: 'blue' }),
+                    _react2.default.createElement(StyledInput, {
+                        id: 'returning',
+                        name: 'returning',
+                        value: props.state.returning,
+                        placeholder: '05/09/2019',
+                        m: 2,
+                        onChange: props.handleChange
+                    })
+                )
+            ),
+            _react2.default.createElement(
+                _pclnDesignSystem.Flex,
+                null,
+                _react2.default.createElement(
+                    _pclnDesignSystem.FormField,
+                    null,
+                    _react2.default.createElement(
+                        StyledLabel,
+                        { htmlFor: 'travelers' },
+                        'Travelers'
+                    ),
+                    _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'User', size: '25', color: 'blue' }),
+                    _react2.default.createElement(StyledInput, { primary: true,
+                        id: 'travelers',
+                        width: 1 / 4,
+                        defaultValue: '1 Adult',
+                        m: 2,
+                        disabled: true
+                    })
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.FormField,
+                    null,
+                    _react2.default.createElement(
+                        StyledLabel,
+                        { htmlFor: 'seat' },
+                        'Seat'
+                    ),
+                    _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'SeatEconomy', size: '20', color: 'blue' }),
+                    _react2.default.createElement(
+                        StyledSelect,
+                        {
+                            id: 'seat',
+                            name: 'seat',
+                            m: 2,
+                            value: props.state.seat,
+                            onChange: props.handleChange
+                        },
+                        _react2.default.createElement(
+                            'option',
+                            null,
+                            'Economy'
+                        ),
+                        _react2.default.createElement(
+                            'option',
+                            null,
+                            'Premium Economy'
+                        ),
+                        _react2.default.createElement(
+                            'option',
+                            null,
+                            'Business'
+                        ),
+                        _react2.default.createElement(
+                            'option',
+                            null,
+                            'First'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    StyledButton,
+                    { m: 2, size: 'large' },
+                    'Find your flight'
+                )
             )
         )
     );
@@ -292,7 +401,8 @@ var Home = function (_React$Component) {
             departure: '',
             arrival: '',
             leaving: '',
-            returning: ''
+            returning: '',
+            seat: ''
         };
 
         _this.handleChange = _this.handleChange.bind(_this);
@@ -316,7 +426,8 @@ var Home = function (_React$Component) {
                 departure: '',
                 arrival: '',
                 leaving: '',
-                returning: ''
+                returning: '',
+                seat: ''
             });
         }
     }, {
@@ -646,7 +757,7 @@ var initialState = {
     arrival: '',
     leaving: '',
     returning: '',
-    passengers: 1,
+    travelers: 1,
     seat: 'Economy'
   }
 

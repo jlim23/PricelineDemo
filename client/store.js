@@ -10,7 +10,7 @@ const initialState = {
     arrival: '',
     leaving: '',
     returning: '',
-    passengers: 1,
+    travelers: 1,
     seat: 'Economy'
   }
 }

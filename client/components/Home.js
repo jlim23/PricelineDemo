@@ -27,7 +27,8 @@ export default class Home extends React.Component {
             departure: '',
             arrival: '',
             leaving: '',
-            returning: ''
+            returning: '',
+            seat: ''
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -49,7 +50,8 @@ export default class Home extends React.Component {
             departure: '',
             arrival: '',
             leaving: '',
-            returning: ''
+            returning: '',
+            seat: ''
         })
     }
 
