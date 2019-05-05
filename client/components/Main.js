@@ -1,7 +1,9 @@
 import React from 'react'
-import {BackgroundImage, Text, Box, Heading} from 'pcln-design-system'
+import { BackgroundImage, Text, Box, Heading } from 'pcln-design-system'
 import styled from 'styled-components'
 import FlightForm from './FlightForm'
+import { connect } from 'react-redux';
+import { getFlight } from '../store';
 
 const StyledHeading = styled(Heading)`
     width: auto;
@@ -19,7 +21,7 @@ const StyledText = styled(Text)`
     text-shadow: #000000 0px 0px 5px
 `
 
-export default class Home extends React.Component {
+class Main extends React.Component {
     constructor() {
         super()
 
@@ -28,6 +30,7 @@ export default class Home extends React.Component {
             arrival: '',
             leaving: '',
             returning: '',
+            travelers: 1,
             seat: ''
         }
 
@@ -41,10 +44,10 @@ export default class Home extends React.Component {
         })
     }
 
-    handleSubmit(evt) {
+    async handleSubmit(evt) {
         evt.preventDefault()
         // dispatch a thunk to redux
-        // this.props.addFlight(this.state)
+        await this.props.sendFlightDetails(this.state)
 
         this.setState({
             departure: '',
@@ -70,9 +73,15 @@ export default class Home extends React.Component {
                         </StyledHeading>
                         <StyledText fontSize={4} color='white' normal>We compare thousands of deals to get you there</StyledText>
                     </Box>
-                    <FlightForm state={this.state} handleChange={this.handleChange} />                        
+                    <FlightForm state={this.state} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>                        
                 </StyledBackground>
             </div>
         )
     }
 }
+
+const mapDispatchToProps = dispatch => ({
+    sendFlightDetails: (flight) => dispatch(getFlight(flight))
+})
+
+export default connect(null, mapDispatchToProps)(Main)

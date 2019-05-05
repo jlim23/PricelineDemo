@@ -1,12 +1,12 @@
 import React from 'react'
 import NavBar from './NavBar'
-import Home from './Home'
+import Main from './Main'
 
 const Root = () => {
   return (
     <div>
       <NavBar />
-      <Home />
+      <Main />
     </div>
   )
 }

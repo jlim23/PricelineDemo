@@ -4,25 +4,62 @@ import axios from 'axios'
 import loggingMiddleware from 'redux-logger' // https://github.com/evgenyrodionov/redux-logger
 import thunkMiddleware from 'redux-thunk' // https://github.com/gaearon/redux-thunk
 
+/**
+ * INITIAL STATE
+ */
 const initialState = {
-  flightDetails: {
-    departure: '',
-    arrival: '',
-    leaving: '',
-    returning: '',
-    travelers: 1,
-    seat: 'Economy'
+  pointsOfInterest: [],
+  flightDetails: {}
+}
+
+/**
+ * ACTION TYPES
+ */
+const GOT_POINTS_OF_INTERESTS = 'GOT_POINTS_OF_INTERESTS'
+const GOT_FLIGHT = 'GOT_FLIGHT'
+
+/**
+ * ACTION CREATORS
+ */
+const gotPointsOfInterests = attractions => ({
+  type: GOT_POINTS_OF_INTERESTS,
+  attractions
+})
+
+const gotFlight = flight => ({
+  type: GOT_FLIGHT,
+  flight
+})
+
+/**
+ * THUNK CREATORS
+ */
+export const getPointsOfInterests = place => async (dispatch) => {
+  try {
+    const {data} = await axios.post('/api/pointsofinterest', place)
+    dispatch(gotPointsOfInterests(data))
+  } catch (err) {
+    console.error(err)
   }
 }
 
-// Action types
+export const getFlight = details => async (dispatch) => {
+  try {
+    dispatch(gotFlight(details))
+  } catch (err) {
+    console.error(err)
+  }
+}
 
-// Action creators
-
-// Thunk creators
-
+/**
+ * REDUCER
+ */
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case GOT_POINTS_OF_INTERESTS:
+      return {...state, pointsOfInterest: action.attractions}
+    case GOT_FLIGHTS:
+      return {...state, flightDetails: action.flight}
     default:
       return state
   }
