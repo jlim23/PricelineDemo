@@ -55,7 +55,7 @@ class Checkout extends React.Component {
                                     <Text.span color='darkGray'>{place.name}</Text.span>
                                 </div>
                             ))
-                            : <Heading.h2 color='orange' textAlign='center'>No attractions found</Heading.h2>
+                            : <Heading.h2 color='darkOrange' textAlign='center'>No attractions found</Heading.h2>
                         }
                     </Card>
                 </StyledHug>
