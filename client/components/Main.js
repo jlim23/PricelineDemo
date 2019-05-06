@@ -65,7 +65,7 @@ class Main extends React.Component {
             <div>
                 {
                     this.props.loading
-                    ? <Flights state={this.state} />
+                    ? <Flights state={this.state}/>
                     : <StyledBackground
                         image='https://tce-live2.s3.amazonaws.com/media/media/be7a97e5-19d2-4df5-b348-a549dd5b3fe7.jpg'
                         height='600px'>

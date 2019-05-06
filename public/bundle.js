@@ -86,6 +86,44 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./client/components/Checkout.js":
+/*!***************************************!*\
+  !*** ./client/components/Checkout.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _store = __webpack_require__(/*! ../store */ "./client/store.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Checkout = function Checkout() {
+    return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+            'h1',
+            null,
+            'Checkout'
+        )
+    );
+};
+
+exports.default = Checkout;
+
+/***/ }),
+
 /***/ "./client/components/FlightForm.js":
 /*!*****************************************!*\
   !*** ./client/components/FlightForm.js ***!
@@ -119,6 +157,8 @@ var _pclnDesignSystem = __webpack_require__(/*! pcln-design-system */ "./node_mo
 var _styledComponents = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -327,9 +367,13 @@ var FlightForm = function FlightForm(props) {
                         )
                     ),
                     _react2.default.createElement(
-                        StyledButton,
-                        { m: 2, size: 'large' },
-                        'Find your flight'
+                        _reactRouterDom.Link,
+                        { to: '/flights' },
+                        _react2.default.createElement(
+                            StyledButton,
+                            { m: 2, size: 'large' },
+                            'Find your flight'
+                        )
                     )
                 )
             )
@@ -371,6 +415,8 @@ var _pclnDesignSystem = __webpack_require__(/*! pcln-design-system */ "./node_mo
 var _styledComponents = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
 var _NavBar = __webpack_require__(/*! ./NavBar */ "./client/components/NavBar.js");
 
@@ -485,9 +531,13 @@ var Flights = function Flights(props) {
                         'per person'
                     ),
                     _react2.default.createElement(
-                        StyledButton,
-                        { px: 2 },
-                        'View Details'
+                        _reactRouterDom.Link,
+                        { to: '/checkout' },
+                        _react2.default.createElement(
+                            StyledButton,
+                            { px: 2 },
+                            'View Details'
+                        )
                     )
                 ),
                 _react2.default.createElement(_pclnDesignSystem.Divider, { width: 3 / 4 }),
@@ -615,9 +665,13 @@ var Flights = function Flights(props) {
                     'per person'
                 ),
                 _react2.default.createElement(
-                    _pclnDesignSystem.GreenButton,
-                    { mt: 1, ml: 663, px: 2 },
-                    'View Details'
+                    _reactRouterDom.Link,
+                    { to: '/checkout' },
+                    _react2.default.createElement(
+                        _pclnDesignSystem.GreenButton,
+                        { mt: 1, ml: 663, px: 2 },
+                        'View Details'
+                    )
                 )
             ),
             _react2.default.createElement(_pclnDesignSystem.Divider, { width: 3 / 4 }),
@@ -690,9 +744,9 @@ var Flights = function Flights(props) {
                 p: 4 },
             _react2.default.createElement(
                 _pclnDesignSystem.Stamp,
-                { color: 'red' },
+                { color: 'purple' },
                 _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'TrendingUp', size: 16, mr: 1 }),
-                ' Hurry! Only 1 seat left at this price'
+                ' 529 people are looking at this right now'
             ),
             _react2.default.createElement(
                 _pclnDesignSystem.Card,
@@ -777,9 +831,13 @@ var Flights = function Flights(props) {
                     'per person'
                 ),
                 _react2.default.createElement(
-                    _pclnDesignSystem.GreenButton,
-                    { mt: 1, ml: 663, px: 2 },
-                    'View Details'
+                    _reactRouterDom.Link,
+                    { to: '/checkout' },
+                    _react2.default.createElement(
+                        _pclnDesignSystem.GreenButton,
+                        { mt: 1, ml: 663, px: 2 },
+                        'View Details'
+                    )
                 )
             ),
             _react2.default.createElement(_pclnDesignSystem.Divider, { width: 3 / 4 }),
@@ -1145,6 +1203,54 @@ exports.default = NavBar;
 
 /***/ }),
 
+/***/ "./client/components/Root.js":
+/*!***********************************!*\
+  !*** ./client/components/Root.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+var _Main = __webpack_require__(/*! ./Main */ "./client/components/Main.js");
+
+var _Main2 = _interopRequireDefault(_Main);
+
+var _Flights = __webpack_require__(/*! ./Flights */ "./client/components/Flights.js");
+
+var _Flights2 = _interopRequireDefault(_Flights);
+
+var _Checkout = __webpack_require__(/*! ./Checkout */ "./client/components/Checkout.js");
+
+var _Checkout2 = _interopRequireDefault(_Checkout);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Root = function Root() {
+    return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Main2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/flights', component: _Flights2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/checkout', component: _Checkout2.default })
+    );
+};
+
+exports.default = Root;
+
+/***/ }),
+
 /***/ "./client/history.js":
 /*!***************************!*\
   !*** ./client/history.js ***!
@@ -1205,9 +1311,9 @@ var _store = __webpack_require__(/*! ./store */ "./client/store.js");
 
 var _store2 = _interopRequireDefault(_store);
 
-var _Main = __webpack_require__(/*! ./components/Main */ "./client/components/Main.js");
+var _Root = __webpack_require__(/*! ./components/Root */ "./client/components/Root.js");
 
-var _Main2 = _interopRequireDefault(_Main);
+var _Root2 = _interopRequireDefault(_Root);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1220,7 +1326,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     _react2.default.createElement(
       _pclnDesignSystem.ThemeProvider,
       null,
-      _react2.default.createElement(_Main2.default, null)
+      _react2.default.createElement(_Root2.default, null)
     )
   )
 ), document.getElementById('main'));

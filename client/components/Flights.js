@@ -1,6 +1,7 @@
 import React from 'react'
 import { Hug, Card, Stamp, Icon, Text, Divider, Button, Container, GreenButton } from 'pcln-design-system'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import NavBar from './NavBar'
 
@@ -60,7 +61,7 @@ const Flights = props => {
                         <StyledText fontSize={4} color='blue' bold>357</StyledText>
                         <Text mt={-31} ml={757} fontSize={1} color='blue'>.99</Text>
                         <Text mt={9} ml={716} fontSize={1} color='gray' normal>per person</Text>
-                        <StyledButton px={2}>View Details</StyledButton>
+                        <Link to='/checkout'><StyledButton px={2}>View Details</StyledButton></Link>
                     </StyledContainer>
 
                     <Divider width={3/4}/>
@@ -104,7 +105,7 @@ const Flights = props => {
                     <Text mt={-26} ml={686} fontSize={4} color='green' bold>457</Text>
                     <Text mt={-31} ml={733} fontSize={1} color='green'>.20</Text>
                     <Text mt={9} ml={685} fontSize={1} color='gray' normal>per person</Text>
-                    <GreenButton mt={1} ml={663} px={2}>View Details</GreenButton>
+                    <Link to='/checkout'><GreenButton mt={1} ml={663} px={2}>View Details</GreenButton></Link>
                 </StyledContainer>
 
                 <Divider width={3/4}/>
@@ -132,8 +133,8 @@ const Flights = props => {
                 borderRadius={6}
                 p={4}>
 
-                <Stamp color='red'>
-                        <Icon name='TrendingUp' size={16} mr={1} /> Hurry! Only 1 seat left at this price
+                <Stamp color='purple'>
+                        <Icon name='TrendingUp' size={16} mr={1} /> 529 people are looking at this right now
                 </Stamp>
                 <Card mt={1} borderWidth={0}>
                     <StyledIcon name='BoxEmpty' size={16} mr={1} color='borderGray'/>
@@ -155,7 +156,7 @@ const Flights = props => {
                     <Text mt={-26} ml={686} fontSize={4} color='green' bold>424</Text>
                     <Text mt={-31} ml={733} fontSize={1} color='green'>.97</Text>
                     <Text mt={9} ml={685} fontSize={1} color='gray' normal>per person</Text>
-                    <GreenButton mt={1} ml={663} px={2}>View Details</GreenButton>
+                    <Link to='/checkout'><GreenButton mt={1} ml={663} px={2}>View Details</GreenButton></Link>
                 </StyledContainer>
 
                 <Divider width={3/4}/>

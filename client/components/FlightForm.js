@@ -1,6 +1,7 @@
 import React from 'react'
 import {Box, Container, Flex, FormField, Icon, Input, Label, Button, Select} from 'pcln-design-system'
 import styled, {css} from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Tabs = styled(Container)`
     display: flex;
@@ -164,7 +165,7 @@ const FlightForm = props => {
                                 <option>First</option>
                             </StyledSelect>
                         </FormField>
-                        <StyledButton m={2} size='large'>Find your flight</StyledButton>
+                        <Link to='/flights'><StyledButton m={2} size='large'>Find your flight</StyledButton></Link>
                     </Flex>
                 </StyledBox>
             </form>
