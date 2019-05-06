@@ -46,10 +46,10 @@ class Main extends React.Component {
         })
     }
 
-    async handleSubmit(evt) {
+    handleSubmit(evt) {
         evt.preventDefault()
         // dispatch a thunk to redux
-        await this.props.sendFlightDetails(this.state)
+       this.props.sendFlightDetails(this.state)
 
         this.setState({
             departure: '',
@@ -61,11 +61,12 @@ class Main extends React.Component {
     }
 
     render() {
+        console.log('MAIN', this.props.flight)
         return (
             <div>
                 {
                     this.props.loading
-                    ? <Flights state={this.state}/>
+                    ? <Flights/>
                     : <StyledBackground
                         image='https://tce-live2.s3.amazonaws.com/media/media/be7a97e5-19d2-4df5-b348-a549dd5b3fe7.jpg'
                         height='600px'>
@@ -87,6 +88,7 @@ class Main extends React.Component {
 }
 
 const mapStateToProps = state => ({
+    flight: state.flightDetails,
     loading: state.loading
 })
 

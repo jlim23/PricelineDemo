@@ -1,12 +1,27 @@
 import React from 'react'
 import { getPointsOfInterest } from '../store'
+import { connect } from 'react-redux';
 
-const Checkout = () => {
-    return (
-        <div>
-            <h1>Checkout</h1>
-        </div>
-    )
+import NavBar from './NavBar'
+
+class Checkout extends React.Component {
+    render () {
+        console.log('CHECKOUT', this.props.flight)
+        return (
+            <div>
+                <NavBar />
+                
+            </div>
+        )
+    }
 }
 
-export default Checkout
+const mapStateToProps = state => ({
+    flight: state.flightDetails
+})
+
+const mapDispatchToProps = dispatch => ({
+    getPointsOfInterest: (place) => dispatch(getPointsOfInterest(place))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout)

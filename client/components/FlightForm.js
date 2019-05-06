@@ -165,7 +165,7 @@ const FlightForm = props => {
                                 <option>First</option>
                             </StyledSelect>
                         </FormField>
-                        <Link to='/flights'><StyledButton m={2} size='large'>Find your flight</StyledButton></Link>
+                        <StyledButton m={2} size='large'>Find your flight</StyledButton>
                     </Flex>
                 </StyledBox>
             </form>

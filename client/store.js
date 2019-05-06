@@ -12,10 +12,10 @@ const initialState = {
   flightDetails: {
     departure: 'New York City, NY (JFK)',
     arrival: 'Seattle, WA (SEA)',
-    leaving: '05/04/2019',
-    returning: '05/09/2019',
+    leaving: '05/09/2019',
+    returning: '05/13/2019',
     passengers: 1,
-    seat: 'Economy'
+    seat: 'First'
   },
   loading: false
 }
