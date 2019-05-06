@@ -1,8 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { Box, Text, Banner, Flex, Icon, Heading } from 'pcln-design-system'
+import { Box, Text, Banner, Flex, Icon, Heading, Hug, Card } from 'pcln-design-system'
+import styled from 'styled-components'
 
 import NavBar from './NavBar'
+
+const StyledHug = styled(Hug)`
+    width: 833px;
+    margin: 38px 285px 0 285px
+`
 
 const formatPlace = place => place.split(',')[0]
 
@@ -34,13 +40,31 @@ class Checkout extends React.Component {
                         </Box>
                     </Flex>
                 </Banner>
+                <StyledHug
+                    bg='darkBlue'
+                    text={<Text.span fontSize={2} bold>See what this city has to offer:</Text.span>}>
+                    <Card p={4}>
+                        {
+                            this.props.places.map(place => (
+                                <div>
+                                    <Icon
+                                        name='ChevronRight'
+                                        color='orange'
+                                        />
+                                    <Text.span color='darkGray'>{place.name}</Text.span>
+                                </div>
+                            ))
+                        }
+                    </Card>
+                </StyledHug>
             </div>
         )
     }
 }
 
 const mapStateToProps = state => ({
-    flight: state.flightDetails
+    flight: state.flightDetails,
+    places: state.pointsOfInterest
 })
 
 export default connect(mapStateToProps)(Checkout)
