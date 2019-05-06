@@ -145,188 +145,192 @@ var FlightForm = function FlightForm(props) {
         'div',
         null,
         _react2.default.createElement(
-            Tabs,
-            { maxWidth: 813 },
+            'form',
+            { onSubmit: props.handleSubmit },
             _react2.default.createElement(
-                StyledBox,
-                { primary: true, p: 3, mx: 1, textAlign: 'center', color: 'blue', bg: 'lightBlue' },
-                'HOTELS'
-            ),
-            _react2.default.createElement(
-                StyledBox,
-                { primary: true, p: 3, mx: 1, textAlign: 'center', color: 'blue', bg: 'white', bold: true },
-                'FLIGHTS'
-            ),
-            _react2.default.createElement(
-                StyledBox,
-                { primary: true, p: 3, mx: 1, textAlign: 'center', color: 'blue', bg: 'lightBlue' },
-                'HOTEL + FLIGHT'
-            ),
-            _react2.default.createElement(
-                StyledBox,
-                { primary: true, p: 3, mx: 1, textAlign: 'center', color: 'blue', bg: 'lightBlue' },
-                'CARS'
-            ),
-            _react2.default.createElement(
-                StyledBox,
-                { primary: true, p: 3, mx: 1, textAlign: 'center', color: 'blue', bg: 'lightBlue' },
-                'CRUISES'
-            )
-        ),
-        _react2.default.createElement(
-            StyledBox,
-            { p: 30, ml: 106, width: 0.6, bg: 'white' },
-            _react2.default.createElement(
-                StyledLabel,
-                { primary: true, color: 'darkGray' },
-                _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'RadioChecked', size: '20', color: 'blue' }),
-                ' ',
-                'Round-trip'
-            ),
-            _react2.default.createElement(
-                _pclnDesignSystem.Flex,
-                null,
+                Tabs,
+                { maxWidth: 813 },
                 _react2.default.createElement(
-                    _pclnDesignSystem.FormField,
-                    null,
-                    _react2.default.createElement(
-                        StyledLabel,
-                        { htmlFor: 'departure' },
-                        'Departing from?'
-                    ),
-                    _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'Departure', size: '20', color: 'blue' }),
-                    _react2.default.createElement(StyledInput, {
-                        id: 'departure',
-                        name: 'departure',
-                        value: props.state.departure,
-                        placeholder: 'New York City, NY (JFK)',
-                        m: 2,
-                        onChange: props.handleChange
-                    })
+                    StyledBox,
+                    { primary: true, p: 3, mx: 1, textAlign: 'center', color: 'blue', bg: 'lightBlue' },
+                    'HOTELS'
                 ),
                 _react2.default.createElement(
-                    _pclnDesignSystem.FormField,
-                    null,
-                    _react2.default.createElement(
-                        StyledLabel,
-                        { htmlFor: 'arrival' },
-                        'Going to?'
-                    ),
-                    _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'Arrival', size: '20', color: 'blue' }),
-                    _react2.default.createElement(StyledInput, {
-                        id: 'arrival',
-                        name: 'arrival',
-                        value: props.state.arrival,
-                        placeholder: 'New Haven, CT (HVN)',
-                        m: 2,
-                        onChange: props.handleChange
-                    })
+                    StyledBox,
+                    { primary: true, p: 3, mx: 1, textAlign: 'center', color: 'blue', bg: 'white', bold: true },
+                    'FLIGHTS'
+                ),
+                _react2.default.createElement(
+                    StyledBox,
+                    { primary: true, p: 3, mx: 1, textAlign: 'center', color: 'blue', bg: 'lightBlue' },
+                    'HOTEL + FLIGHT'
+                ),
+                _react2.default.createElement(
+                    StyledBox,
+                    { primary: true, p: 3, mx: 1, textAlign: 'center', color: 'blue', bg: 'lightBlue' },
+                    'CARS'
+                ),
+                _react2.default.createElement(
+                    StyledBox,
+                    { primary: true, p: 3, mx: 1, textAlign: 'center', color: 'blue', bg: 'lightBlue' },
+                    'CRUISES'
                 )
             ),
             _react2.default.createElement(
-                _pclnDesignSystem.Flex,
-                null,
+                StyledBox,
+                { p: 30, ml: 106, width: 0.6, bg: 'white' },
                 _react2.default.createElement(
-                    _pclnDesignSystem.FormField,
-                    null,
-                    _react2.default.createElement(
-                        StyledLabel,
-                        { htmlFor: 'leaving' },
-                        'Leaving'
-                    ),
-                    _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'Calendar', size: '20', color: 'blue' }),
-                    _react2.default.createElement(StyledInput, {
-                        id: 'leaving',
-                        name: 'leaving',
-                        value: props.state.leaving,
-                        placeholder: '05/04/2019',
-                        m: 2,
-                        onChange: props.handleChange
-                    })
+                    StyledLabel,
+                    { primary: true, color: 'darkGray' },
+                    _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'RadioChecked', size: '20', color: 'blue' }),
+                    ' ',
+                    'Round-trip'
                 ),
                 _react2.default.createElement(
-                    _pclnDesignSystem.FormField,
+                    _pclnDesignSystem.Flex,
                     null,
                     _react2.default.createElement(
-                        StyledLabel,
-                        { htmlFor: 'returning' },
-                        'Returning'
-                    ),
-                    _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'Calendar', size: '20', color: 'blue' }),
-                    _react2.default.createElement(StyledInput, {
-                        id: 'returning',
-                        name: 'returning',
-                        value: props.state.returning,
-                        placeholder: '05/09/2019',
-                        m: 2,
-                        onChange: props.handleChange
-                    })
-                )
-            ),
-            _react2.default.createElement(
-                _pclnDesignSystem.Flex,
-                null,
-                _react2.default.createElement(
-                    _pclnDesignSystem.FormField,
-                    null,
-                    _react2.default.createElement(
-                        StyledLabel,
-                        { htmlFor: 'travelers' },
-                        'Travelers'
-                    ),
-                    _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'User', size: '25', color: 'blue' }),
-                    _react2.default.createElement(StyledInput, { primary: true,
-                        id: 'travelers',
-                        width: 1 / 4,
-                        defaultValue: '1 Adult',
-                        m: 2,
-                        disabled: true
-                    })
-                ),
-                _react2.default.createElement(
-                    _pclnDesignSystem.FormField,
-                    null,
-                    _react2.default.createElement(
-                        StyledLabel,
-                        { htmlFor: 'seat' },
-                        'Seat'
-                    ),
-                    _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'SeatEconomy', size: '20', color: 'blue' }),
-                    _react2.default.createElement(
-                        StyledSelect,
-                        {
-                            id: 'seat',
-                            name: 'seat',
+                        _pclnDesignSystem.FormField,
+                        null,
+                        _react2.default.createElement(
+                            StyledLabel,
+                            { htmlFor: 'departure' },
+                            'Departing from?'
+                        ),
+                        _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'Departure', size: '20', color: 'blue' }),
+                        _react2.default.createElement(StyledInput, {
+                            id: 'departure',
+                            name: 'departure',
+                            value: props.state.departure,
+                            placeholder: 'New York City, NY (JFK)',
                             m: 2,
-                            value: props.state.seat,
                             onChange: props.handleChange
-                        },
+                        })
+                    ),
+                    _react2.default.createElement(
+                        _pclnDesignSystem.FormField,
+                        null,
                         _react2.default.createElement(
-                            'option',
-                            null,
-                            'Economy'
+                            StyledLabel,
+                            { htmlFor: 'arrival' },
+                            'Going to?'
                         ),
-                        _react2.default.createElement(
-                            'option',
-                            null,
-                            'Premium Economy'
-                        ),
-                        _react2.default.createElement(
-                            'option',
-                            null,
-                            'Business'
-                        ),
-                        _react2.default.createElement(
-                            'option',
-                            null,
-                            'First'
-                        )
+                        _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'Arrival', size: '20', color: 'blue' }),
+                        _react2.default.createElement(StyledInput, {
+                            id: 'arrival',
+                            name: 'arrival',
+                            value: props.state.arrival,
+                            placeholder: 'New Haven, CT (HVN)',
+                            m: 2,
+                            onChange: props.handleChange
+                        })
                     )
                 ),
                 _react2.default.createElement(
-                    StyledButton,
-                    { m: 2, size: 'large' },
-                    'Find your flight'
+                    _pclnDesignSystem.Flex,
+                    null,
+                    _react2.default.createElement(
+                        _pclnDesignSystem.FormField,
+                        null,
+                        _react2.default.createElement(
+                            StyledLabel,
+                            { htmlFor: 'leaving' },
+                            'Leaving'
+                        ),
+                        _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'Calendar', size: '20', color: 'blue' }),
+                        _react2.default.createElement(StyledInput, {
+                            id: 'leaving',
+                            name: 'leaving',
+                            value: props.state.leaving,
+                            placeholder: '05/09/2019',
+                            m: 2,
+                            onChange: props.handleChange
+                        })
+                    ),
+                    _react2.default.createElement(
+                        _pclnDesignSystem.FormField,
+                        null,
+                        _react2.default.createElement(
+                            StyledLabel,
+                            { htmlFor: 'returning' },
+                            'Returning'
+                        ),
+                        _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'Calendar', size: '20', color: 'blue' }),
+                        _react2.default.createElement(StyledInput, {
+                            id: 'returning',
+                            name: 'returning',
+                            value: props.state.returning,
+                            placeholder: '05/16/2019',
+                            m: 2,
+                            onChange: props.handleChange
+                        })
+                    )
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Flex,
+                    null,
+                    _react2.default.createElement(
+                        _pclnDesignSystem.FormField,
+                        null,
+                        _react2.default.createElement(
+                            StyledLabel,
+                            { htmlFor: 'passengers' },
+                            'Passengers'
+                        ),
+                        _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'User', size: '25', color: 'blue' }),
+                        _react2.default.createElement(StyledInput, { primary: true,
+                            id: 'passengers',
+                            width: 1 / 4,
+                            defaultValue: '1 Adult',
+                            m: 2,
+                            disabled: true
+                        })
+                    ),
+                    _react2.default.createElement(
+                        _pclnDesignSystem.FormField,
+                        null,
+                        _react2.default.createElement(
+                            StyledLabel,
+                            { htmlFor: 'seat' },
+                            'Seat'
+                        ),
+                        _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'SeatEconomy', size: '20', color: 'blue' }),
+                        _react2.default.createElement(
+                            StyledSelect,
+                            {
+                                id: 'seat',
+                                name: 'seat',
+                                m: 2,
+                                value: props.state.seat,
+                                onChange: props.handleChange
+                            },
+                            _react2.default.createElement(
+                                'option',
+                                null,
+                                'Economy'
+                            ),
+                            _react2.default.createElement(
+                                'option',
+                                null,
+                                'Premium Economy'
+                            ),
+                            _react2.default.createElement(
+                                'option',
+                                null,
+                                'Business'
+                            ),
+                            _react2.default.createElement(
+                                'option',
+                                null,
+                                'First'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        StyledButton,
+                        { m: 2, size: 'large' },
+                        'Find your flight'
+                    )
                 )
             )
         )
@@ -337,9 +341,518 @@ exports.default = FlightForm;
 
 /***/ }),
 
-/***/ "./client/components/Home.js":
+/***/ "./client/components/Flights.js":
+/*!**************************************!*\
+  !*** ./client/components/Flights.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _templateObject = _taggedTemplateLiteral(['\n    width: 833px;\n    margin: 38px 285px 0 285px\n'], ['\n    width: 833px;\n    margin: 38px 285px 0 285px\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    width: 833px;\n    margin: 38px 285px 40px 285px\n'], ['\n    width: 833px;\n    margin: 38px 285px 40px 285px\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n    margin: 5px 0 5px 693px\n'], ['\n    margin: 5px 0 5px 693px\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n    margin: -26px 0px 0 717px\n'], ['\n    margin: -26px 0px 0 717px\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n    margin: -25px 0 -51px 0\n'], ['\n    margin: -25px 0 -51px 0\n']),
+    _templateObject6 = _taggedTemplateLiteral(['\n    display: inline-block\n'], ['\n    display: inline-block\n']);
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _pclnDesignSystem = __webpack_require__(/*! pcln-design-system */ "./node_modules/pcln-design-system/dist/index.esm.js");
+
+var _styledComponents = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _NavBar = __webpack_require__(/*! ./NavBar */ "./client/components/NavBar.js");
+
+var _NavBar2 = _interopRequireDefault(_NavBar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var StyledHug = (0, _styledComponents2.default)(_pclnDesignSystem.Hug)(_templateObject);
+
+var StyledCard = (0, _styledComponents2.default)(_pclnDesignSystem.Card)(_templateObject2);
+
+var StyledButton = (0, _styledComponents2.default)(_pclnDesignSystem.Button)(_templateObject3);
+
+var StyledText = (0, _styledComponents2.default)(_pclnDesignSystem.Text)(_templateObject4);
+
+var StyledContainer = (0, _styledComponents2.default)(_pclnDesignSystem.Container)(_templateObject5);
+
+var StyledIcon = (0, _styledComponents2.default)(_pclnDesignSystem.Icon)(_templateObject6);
+
+var Flights = function Flights(props) {
+    return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_NavBar2.default, null),
+        _react2.default.createElement(_pclnDesignSystem.Divider, null),
+        _react2.default.createElement(
+            StyledHug,
+            {
+                m: 15,
+                bg: 'blue',
+                text: _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        _pclnDesignSystem.Text.span,
+                        { mr: 429, bold: true },
+                        'EXPRESS DEAL'
+                    ),
+                    _react2.default.createElement(
+                        _pclnDesignSystem.Text.span,
+                        { ml: 10, mr: 1, bold: true },
+                        'Save $111!'
+                    ),
+                    _react2.default.createElement(
+                        _pclnDesignSystem.Text.span,
+                        { mr: 1 },
+                        'That\'s 24% off the retail price.'
+                    )
+                ) },
+            _react2.default.createElement(
+                _pclnDesignSystem.Card,
+                { p: 3 },
+                _react2.default.createElement(
+                    _pclnDesignSystem.Stamp,
+                    { color: 'green' },
+                    _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'Discount', size: 16, mr: 1 }),
+                    ' budget friendly'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { color: 'green', fontSize: 1, mx: 12 },
+                    'Watching your wallet? Express Deals are your best way to save.'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text,
+                    { mt: 3, fontSize: 1, bold: true },
+                    'Thurs'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { fontSize: 1, bold: true },
+                    '05/09'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mx: 4, fontSize: 1, bold: true },
+                    'JFK - SEA'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mr: 1, fontSize: 1, bold: true },
+                    'Morning'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mr: 1, fontSize: 1 },
+                    'takeoff'
+                ),
+                _react2.default.createElement(
+                    StyledContainer,
+                    null,
+                    _react2.default.createElement(
+                        _pclnDesignSystem.Text,
+                        { ml: 706, fontSize: 1, color: 'blue', bold: true },
+                        '$'
+                    ),
+                    _react2.default.createElement(
+                        StyledText,
+                        { fontSize: 4, color: 'blue', bold: true },
+                        '357'
+                    ),
+                    _react2.default.createElement(
+                        _pclnDesignSystem.Text,
+                        { mt: -31, ml: 757, fontSize: 1, color: 'blue' },
+                        '.99'
+                    ),
+                    _react2.default.createElement(
+                        _pclnDesignSystem.Text,
+                        { mt: 9, ml: 716, fontSize: 1, color: 'gray', normal: true },
+                        'per person'
+                    ),
+                    _react2.default.createElement(
+                        StyledButton,
+                        { px: 2 },
+                        'View Details'
+                    )
+                ),
+                _react2.default.createElement(_pclnDesignSystem.Divider, { width: 3 / 4 }),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text,
+                    { mt: 3, fontSize: 1, bold: true },
+                    'Mon'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { fontSize: 1, bold: true },
+                    '05/13'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mx: 4, fontSize: 1, bold: true },
+                    'SEA - JFK'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mr: 1, fontSize: 1, bold: true },
+                    'Night'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mr: 1, fontSize: 1 },
+                    'takeoff'
+                ),
+                _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'Overnight', size: 16 })
+            )
+        ),
+        _react2.default.createElement(
+            StyledCard,
+            {
+                boxShadowSize: 'sm',
+                borderWidth: 0,
+                borderRadius: 6,
+                p: 4 },
+            _react2.default.createElement(
+                _pclnDesignSystem.Stamp,
+                { color: 'red' },
+                _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'TrendingUp', size: 16, mr: 1 }),
+                ' Hurry! Only 1 seat left at this price'
+            ),
+            _react2.default.createElement(
+                _pclnDesignSystem.Card,
+                { mt: 1, borderWidth: 0 },
+                _react2.default.createElement(StyledIcon, { name: 'BoxEmpty', size: 16, mr: 1, color: 'borderGray' }),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mx: 25, mt: 3, fontSize: 1, bold: true },
+                    'Thurs'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 23, fontSize: 1, normal: true },
+                    'American'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 35, mr: 1, fontSize: 1, bold: true },
+                    '8:10a'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mr: 1, fontSize: 1 },
+                    '----------------'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mr: 1, fontSize: 1, bold: true },
+                    '4:27p'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 102, fontSize: 1, normal: true },
+                    '1 Stop'
+                )
+            ),
+            _react2.default.createElement(
+                _pclnDesignSystem.Card,
+                { borderWidth: 0 },
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mx: 45, fontSize: 1, bold: true },
+                    '05/09'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 116, fontSize: 1, normal: true },
+                    'JFK'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 94, fontSize: 1, normal: true },
+                    'SEA'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 117, fontSize: 1, color: 'darkGray', normal: true },
+                    '11h 17m'
+                )
+            ),
+            _react2.default.createElement(
+                StyledContainer,
+                null,
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text,
+                    { ml: 675, fontSize: 1, color: 'green', bold: true },
+                    '$'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text,
+                    { mt: -26, ml: 686, fontSize: 4, color: 'green', bold: true },
+                    '457'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text,
+                    { mt: -31, ml: 733, fontSize: 1, color: 'green' },
+                    '.20'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text,
+                    { mt: 9, ml: 685, fontSize: 1, color: 'gray', normal: true },
+                    'per person'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.GreenButton,
+                    { mt: 1, ml: 663, px: 2 },
+                    'View Details'
+                )
+            ),
+            _react2.default.createElement(_pclnDesignSystem.Divider, { width: 3 / 4 }),
+            _react2.default.createElement(
+                _pclnDesignSystem.Card,
+                { mt: 1, borderWidth: 0 },
+                _react2.default.createElement(StyledIcon, { name: 'BoxEmpty', size: 16, mr: 1, color: 'borderGray' }),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mx: 25, mt: 3, fontSize: 1, bold: true },
+                    'Mon'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mx: 4, fontSize: 1, normal: true },
+                    'American'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 2, mr: 1, fontSize: 1, bold: true },
+                    '11:41p'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mr: 1, fontSize: 1 },
+                    '----------------'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mr: 1, fontSize: 1, bold: true },
+                    '1:10p'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 99, fontSize: 1, normal: true },
+                    '2 Stops'
+                )
+            ),
+            _react2.default.createElement(
+                _pclnDesignSystem.Card,
+                { borderWidth: 0 },
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mx: 45, fontSize: 1, bold: true },
+                    '05/09'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 123, fontSize: 1, normal: true },
+                    'SEA'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 93, fontSize: 1, normal: true },
+                    'JFK'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 107, fontSize: 1, color: 'darkGray', normal: true },
+                    '10h 29m'
+                )
+            )
+        ),
+        _react2.default.createElement(
+            StyledCard,
+            {
+                boxShadowSize: 'sm',
+                borderWidth: 0,
+                borderRadius: 6,
+                p: 4 },
+            _react2.default.createElement(
+                _pclnDesignSystem.Stamp,
+                { color: 'red' },
+                _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'TrendingUp', size: 16, mr: 1 }),
+                ' Hurry! Only 1 seat left at this price'
+            ),
+            _react2.default.createElement(
+                _pclnDesignSystem.Card,
+                { mt: 1, borderWidth: 0 },
+                _react2.default.createElement(StyledIcon, { name: 'BoxEmpty', size: 16, mr: 1, color: 'borderGray' }),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mx: 25, mt: 3, fontSize: 1, bold: true },
+                    'Thurs'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 23, fontSize: 1, normal: true },
+                    'Delta'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 66, mr: 1, fontSize: 1, bold: true },
+                    '11:30a'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mr: 1, fontSize: 1 },
+                    '----------------'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mr: 1, fontSize: 1, bold: true },
+                    '2:32p'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 97, fontSize: 1, normal: true },
+                    'Nonstop'
+                )
+            ),
+            _react2.default.createElement(
+                _pclnDesignSystem.Card,
+                { borderWidth: 0 },
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mx: 45, fontSize: 1, bold: true },
+                    '05/09'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 121, fontSize: 1, normal: true },
+                    'JFK'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 93, fontSize: 1, normal: true },
+                    'SEA'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 115, fontSize: 1, color: 'darkGray', normal: true },
+                    '6h 2m'
+                )
+            ),
+            _react2.default.createElement(
+                StyledContainer,
+                null,
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text,
+                    { ml: 675, fontSize: 1, color: 'green', bold: true },
+                    '$'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text,
+                    { mt: -26, ml: 686, fontSize: 4, color: 'green', bold: true },
+                    '424'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text,
+                    { mt: -31, ml: 733, fontSize: 1, color: 'green' },
+                    '.97'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text,
+                    { mt: 9, ml: 685, fontSize: 1, color: 'gray', normal: true },
+                    'per person'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.GreenButton,
+                    { mt: 1, ml: 663, px: 2 },
+                    'View Details'
+                )
+            ),
+            _react2.default.createElement(_pclnDesignSystem.Divider, { width: 3 / 4 }),
+            _react2.default.createElement(
+                _pclnDesignSystem.Card,
+                { mt: 1, borderWidth: 0 },
+                _react2.default.createElement(StyledIcon, { name: 'BoxEmpty', size: 16, mr: 1, color: 'borderGray' }),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mx: 25, mt: 3, fontSize: 1, bold: true },
+                    'Mon'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mx: 4, fontSize: 1, normal: true },
+                    'American'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 7, mr: 1, fontSize: 1, bold: true },
+                    '11:41p'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mr: 1, fontSize: 1 },
+                    '----------------'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mr: 1, fontSize: 1, bold: true },
+                    '1:10p'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 102, fontSize: 1, normal: true },
+                    '2 Stops'
+                )
+            ),
+            _react2.default.createElement(
+                _pclnDesignSystem.Card,
+                { borderWidth: 0 },
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { mx: 45, fontSize: 1, bold: true },
+                    '05/09'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 123, fontSize: 1, normal: true },
+                    'SEA'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 94, fontSize: 1, normal: true },
+                    'JFK'
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text.span,
+                    { ml: 113, fontSize: 1, color: 'darkGray', normal: true },
+                    '10h 29m'
+                )
+            )
+        )
+    );
+};
+
+exports.default = Flights;
+
+/***/ }),
+
+/***/ "./client/components/Main.js":
 /*!***********************************!*\
-  !*** ./client/components/Home.js ***!
+  !*** ./client/components/Main.js ***!
   \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -367,11 +880,21 @@ var _styledComponents = __webpack_require__(/*! styled-components */ "./node_mod
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _store = __webpack_require__(/*! ../store */ "./client/store.js");
+
 var _FlightForm = __webpack_require__(/*! ./FlightForm */ "./client/components/FlightForm.js");
 
 var _FlightForm2 = _interopRequireDefault(_FlightForm);
 
+var _Flights = __webpack_require__(/*! ./Flights */ "./client/components/Flights.js");
+
+var _Flights2 = _interopRequireDefault(_Flights);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -389,19 +912,20 @@ var StyledBackground = (0, _styledComponents2.default)(_pclnDesignSystem.Backgro
 
 var StyledText = (0, _styledComponents2.default)(_pclnDesignSystem.Text)(_templateObject3);
 
-var Home = function (_React$Component) {
-    _inherits(Home, _React$Component);
+var Main = function (_React$Component) {
+    _inherits(Main, _React$Component);
 
-    function Home() {
-        _classCallCheck(this, Home);
+    function Main() {
+        _classCallCheck(this, Main);
 
-        var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this));
+        var _this = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this));
 
         _this.state = {
             departure: '',
             arrival: '',
             leaving: '',
             returning: '',
+            passengers: 1,
             seat: ''
         };
 
@@ -410,33 +934,55 @@ var Home = function (_React$Component) {
         return _this;
     }
 
-    _createClass(Home, [{
+    _createClass(Main, [{
         key: 'handleChange',
         value: function handleChange(evt) {
             this.setState(_defineProperty({}, evt.target.name, evt.target.value));
         }
     }, {
         key: 'handleSubmit',
-        value: function handleSubmit(evt) {
-            evt.preventDefault();
-            // dispatch a thunk to redux
-            // this.props.addFlight(this.state)
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(evt) {
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                evt.preventDefault();
+                                // dispatch a thunk to redux
+                                _context.next = 3;
+                                return this.props.sendFlightDetails(this.state);
 
-            this.setState({
-                departure: '',
-                arrival: '',
-                leaving: '',
-                returning: '',
-                seat: ''
-            });
-        }
+                            case 3:
+
+                                this.setState({
+                                    departure: '',
+                                    arrival: '',
+                                    leaving: '',
+                                    returning: '',
+                                    seat: ''
+                                });
+
+                            case 4:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function handleSubmit(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return handleSubmit;
+        }()
     }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
                 'div',
                 null,
-                _react2.default.createElement(
+                this.props.loading ? _react2.default.createElement(_Flights2.default, { state: this.state }) : _react2.default.createElement(
                     StyledBackground,
                     {
                         image: 'https://tce-live2.s3.amazonaws.com/media/media/be7a97e5-19d2-4df5-b348-a549dd5b3fe7.jpg',
@@ -458,16 +1004,30 @@ var Home = function (_React$Component) {
                             'We compare thousands of deals to get you there'
                         )
                     ),
-                    _react2.default.createElement(_FlightForm2.default, { state: this.state, handleChange: this.handleChange })
+                    _react2.default.createElement(_FlightForm2.default, { state: this.state, handleChange: this.handleChange, handleSubmit: this.handleSubmit })
                 )
             );
         }
     }]);
 
-    return Home;
+    return Main;
 }(_react2.default.Component);
 
-exports.default = Home;
+var mapStateToProps = function mapStateToProps(state) {
+    return {
+        loading: state.loading
+    };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        sendFlightDetails: function sendFlightDetails(flight) {
+            return dispatch((0, _store.getFlight)(flight));
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Main);
 
 /***/ }),
 
@@ -515,15 +1075,6 @@ var NavBar = function NavBar() {
         _react2.default.createElement(
             _pclnDesignSystem.Container,
             { maxWidth: 1440 },
-            _react2.default.createElement(
-                _pclnDesignSystem.Box,
-                { p: 3, m: -2, color: 'white', bg: 'blue' },
-                _react2.default.createElement(
-                    _pclnDesignSystem.Text,
-                    { fontSize: 14, bold: true },
-                    'Find the best flight deals. Book your trip with us today!'
-                )
-            ),
             _react2.default.createElement(
                 _pclnDesignSystem.Flex,
                 (_React$createElement = { px: 2 }, _defineProperty(_React$createElement, 'px', 3), _defineProperty(_React$createElement, 'py', 2), _defineProperty(_React$createElement, 'my', 18), _React$createElement),
@@ -594,47 +1145,6 @@ exports.default = NavBar;
 
 /***/ }),
 
-/***/ "./client/components/root.js":
-/*!***********************************!*\
-  !*** ./client/components/root.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _NavBar = __webpack_require__(/*! ./NavBar */ "./client/components/NavBar.js");
-
-var _NavBar2 = _interopRequireDefault(_NavBar);
-
-var _Home = __webpack_require__(/*! ./Home */ "./client/components/Home.js");
-
-var _Home2 = _interopRequireDefault(_Home);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Root = function Root() {
-  return _react2.default.createElement(
-    'div',
-    null,
-    _react2.default.createElement(_NavBar2.default, null),
-    _react2.default.createElement(_Home2.default, null)
-  );
-};
-
-exports.default = Root;
-
-/***/ }),
-
 /***/ "./client/history.js":
 /*!***************************!*\
   !*** ./client/history.js ***!
@@ -695,9 +1205,9 @@ var _store = __webpack_require__(/*! ./store */ "./client/store.js");
 
 var _store2 = _interopRequireDefault(_store);
 
-var _root = __webpack_require__(/*! ./components/root */ "./client/components/root.js");
+var _Main = __webpack_require__(/*! ./components/Main */ "./client/components/Main.js");
 
-var _root2 = _interopRequireDefault(_root);
+var _Main2 = _interopRequireDefault(_Main);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -710,7 +1220,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     _react2.default.createElement(
       _pclnDesignSystem.ThemeProvider,
       null,
-      _react2.default.createElement(_root2.default, null)
+      _react2.default.createElement(_Main2.default, null)
     )
   )
 ), document.getElementById('main'));
@@ -730,6 +1240,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.getFlight = exports.getPointsOfInterests = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 
@@ -749,30 +1262,132 @@ var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; } // https://github.com/evgenyrodionov/redux-logger
+
+
 // https://github.com/gaearon/redux-thunk
 
+/**
+ * INITIAL STATE
+ */
 var initialState = {
+  pointsOfInterest: [],
   flightDetails: {
-    departure: '',
-    arrival: '',
-    leaving: '',
-    returning: '',
-    travelers: 1,
+    departure: 'New York City, NY (JFK)',
+    arrival: 'Seattle, WA (SEA)',
+    leaving: '05/04/2019',
+    returning: '05/09/2019',
+    passengers: 1,
     seat: 'Economy'
-  }
+  },
+  loading: false
 
-  // Action types
+  /**
+   * ACTION TYPES
+   */
+};var GOT_POINTS_OF_INTERESTS = 'GOT_POINTS_OF_INTERESTS';
+var GOT_FLIGHT = 'GOT_FLIGHT';
 
-  // Action creators
+/**
+ * ACTION CREATORS
+ */
+var gotPointsOfInterests = function gotPointsOfInterests(attractions) {
+  return {
+    type: GOT_POINTS_OF_INTERESTS,
+    attractions: attractions
+  };
+};
 
-  // Thunk creators
+var gotFlight = function gotFlight(flight) {
+  return {
+    type: GOT_FLIGHT,
+    flight: flight
+  };
+};
 
-}; // https://github.com/evgenyrodionov/redux-logger
+/**
+ * THUNK CREATORS
+ */
+var getPointsOfInterests = exports.getPointsOfInterests = function getPointsOfInterests(place) {
+  return function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(dispatch) {
+      var _ref2, data;
+
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return _axios2.default.post('/api/pointsofinterest', place);
+
+            case 3:
+              _ref2 = _context.sent;
+              data = _ref2.data;
+
+              dispatch(gotPointsOfInterests(data));
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t0 = _context['catch'](0);
+
+              console.error(_context.t0);
+
+            case 11:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, _callee, undefined, [[0, 8]]);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+};
+
+var getFlight = exports.getFlight = function getFlight(details) {
+  return function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(dispatch) {
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              try {
+                dispatch(gotFlight(details));
+              } catch (err) {
+                console.error(err);
+              }
+
+            case 1:
+            case 'end':
+              return _context2.stop();
+          }
+        }
+      }, _callee2, undefined);
+    }));
+
+    return function (_x2) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+};
+
+/**
+ * REDUCER
+ */
 var rootReducer = function rootReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments[1];
 
   switch (action.type) {
+    case GOT_POINTS_OF_INTERESTS:
+      return _extends({}, state, { pointsOfInterest: action.attractions });
+    case GOT_FLIGHT:
+      return _extends({}, state, { flightDetails: action.flight, loading: true });
     default:
       return state;
   }

@@ -9,7 +9,15 @@ import thunkMiddleware from 'redux-thunk' // https://github.com/gaearon/redux-th
  */
 const initialState = {
   pointsOfInterest: [],
-  flightDetails: {}
+  flightDetails: {
+    departure: 'New York City, NY (JFK)',
+    arrival: 'Seattle, WA (SEA)',
+    leaving: '05/04/2019',
+    returning: '05/09/2019',
+    passengers: 1,
+    seat: 'Economy'
+  },
+  loading: false
 }
 
 /**
@@ -58,8 +66,8 @@ const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GOT_POINTS_OF_INTERESTS:
       return {...state, pointsOfInterest: action.attractions}
-    case GOT_FLIGHTS:
-      return {...state, flightDetails: action.flight}
+    case GOT_FLIGHT:
+      return {...state, flightDetails: action.flight, loading: true}
     default:
       return state
   }

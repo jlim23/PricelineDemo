@@ -5,13 +5,13 @@ import {Router} from 'react-router-dom'
 import history from './history'
 import { ThemeProvider } from 'pcln-design-system'
 import store from './store'
-import Root from './components/root'
+import Main from './components/Main'
 
 render(
   <Provider store={store}>
     <Router history={history}>
       <ThemeProvider>
-          <Root />
+          <Main />
       </ThemeProvider>
     </Router>
   </Provider>,
