@@ -106,9 +106,9 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _store = __webpack_require__(/*! ../store */ "./client/store.js");
-
 var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _pclnDesignSystem = __webpack_require__(/*! pcln-design-system */ "./node_modules/pcln-design-system/dist/index.esm.js");
 
 var _NavBar = __webpack_require__(/*! ./NavBar */ "./client/components/NavBar.js");
 
@@ -121,6 +121,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var formatPlace = function formatPlace(place) {
+    return place.split(',')[0];
+};
 
 var Checkout = function (_React$Component) {
     _inherits(Checkout, _React$Component);
@@ -135,10 +139,53 @@ var Checkout = function (_React$Component) {
         key: 'render',
         value: function render() {
             console.log('CHECKOUT', this.props.flight);
+            var arrival = this.props.flight.arrival;
+
+            var city = formatPlace(arrival);
+
             return _react2.default.createElement(
                 'div',
                 null,
-                _react2.default.createElement(_NavBar2.default, null)
+                _react2.default.createElement(_NavBar2.default, null),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Box,
+                    { m: -2, p: 3, color: 'darkGreen', bg: '#cec' },
+                    _react2.default.createElement(
+                        _pclnDesignSystem.Text,
+                        { bold: true },
+                        'You picked a great flight! If your plans change, cancel online for free in the next 24 hours!'
+                    )
+                ),
+                _react2.default.createElement(
+                    _pclnDesignSystem.Banner,
+                    {
+                        showIcon: false,
+                        bg: 'lightBlue',
+                        my: 30,
+                        mx: -2,
+                        p: 3 },
+                    _react2.default.createElement(
+                        _pclnDesignSystem.Flex,
+                        null,
+                        _react2.default.createElement(_pclnDesignSystem.Icon, { name: 'CityView' }),
+                        _react2.default.createElement(
+                            _pclnDesignSystem.Box,
+                            { pl: 2 },
+                            _react2.default.createElement(
+                                _pclnDesignSystem.Heading,
+                                { fontSize: 2, bold: true },
+                                'Top ',
+                                city,
+                                ' Attractions'
+                            ),
+                            _react2.default.createElement(
+                                _pclnDesignSystem.Text,
+                                null,
+                                'Make sure to explore these suggested places for things to do!'
+                            )
+                        )
+                    )
+                )
             );
         }
     }]);
@@ -152,15 +199,7 @@ var mapStateToProps = function mapStateToProps(state) {
     };
 };
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return {
-        getPointsOfInterest: function getPointsOfInterest(place) {
-            return dispatch((0, _store.getPointsOfInterest)(place));
-        }
-    };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Checkout);
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Checkout);
 
 /***/ }),
 
@@ -490,6 +529,9 @@ var formatAirport = function formatAirport(airport) {
 var formatDate = function formatDate(date) {
     return date.slice(0, 5);
 };
+var formatPlace = function formatPlace(place) {
+    return place.split(',')[0];
+};
 
 var Flights = function (_React$Component) {
     _inherits(Flights, _React$Component);
@@ -513,6 +555,8 @@ var Flights = function (_React$Component) {
     _createClass(Flights, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             console.log('FLIGHTS', this.props.flight);
             var _props$flight = this.props.flight,
                 departure = _props$flight.departure,
@@ -524,11 +568,11 @@ var Flights = function (_React$Component) {
             var arriveAt = formatAirport(arrival || this.state.arrival);
             var leavingOn = formatDate(leaving || this.state.leaving);
             var returningOn = formatDate(returning || this.state.returning);
+            var city = formatPlace(arrival || this.state.arrival);
 
             return _react2.default.createElement(
                 'div',
                 null,
-                _react2.default.createElement(_NavBar2.default, null),
                 _react2.default.createElement(_pclnDesignSystem.Divider, null),
                 _react2.default.createElement(
                     StyledHug,
@@ -623,7 +667,9 @@ var Flights = function (_React$Component) {
                                 { to: '/checkout' },
                                 _react2.default.createElement(
                                     StyledButton,
-                                    { px: 2 },
+                                    { px: 2, onClick: function onClick() {
+                                            return _this2.props.getCity(city);
+                                        } },
                                     'View Details'
                                 )
                             )
@@ -759,7 +805,9 @@ var Flights = function (_React$Component) {
                             { to: '/checkout' },
                             _react2.default.createElement(
                                 _pclnDesignSystem.GreenButton,
-                                { mt: 1, ml: 663, px: 2 },
+                                { mt: 1, ml: 663, px: 2, onClick: function onClick() {
+                                        return _this2.props.getCity(city);
+                                    } },
                                 'View Details'
                             )
                         )
@@ -925,7 +973,9 @@ var Flights = function (_React$Component) {
                             { to: '/checkout' },
                             _react2.default.createElement(
                                 _pclnDesignSystem.GreenButton,
-                                { mt: 1, ml: 663, px: 2 },
+                                { mt: 1, ml: 663, px: 2, onClick: function onClick() {
+                                        return _this2.props.getCity(city);
+                                    } },
                                 'View Details'
                             )
                         )
@@ -1008,6 +1058,52 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(Flights);
 
 /***/ }),
 
+/***/ "./client/components/Header.js":
+/*!*************************************!*\
+  !*** ./client/components/Header.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _pclnDesignSystem = __webpack_require__(/*! pcln-design-system */ "./node_modules/pcln-design-system/dist/index.esm.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = function Header() {
+    return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+            _pclnDesignSystem.Container,
+            { maxWidth: 1440 },
+            _react2.default.createElement(
+                _pclnDesignSystem.Box,
+                { p: 3, m: -2, color: 'white', bg: 'blue' },
+                _react2.default.createElement(
+                    _pclnDesignSystem.Text,
+                    { fontSize: 14, bold: true },
+                    'Find the best flight deals. Book your trip with us today!'
+                )
+            )
+        )
+    );
+};
+
+exports.default = Header;
+
+/***/ }),
+
 /***/ "./client/components/Main.js":
 /*!***********************************!*\
   !*** ./client/components/Main.js ***!
@@ -1041,6 +1137,14 @@ var _styledComponents2 = _interopRequireDefault(_styledComponents);
 var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
 var _store = __webpack_require__(/*! ../store */ "./client/store.js");
+
+var _Header = __webpack_require__(/*! ./Header */ "./client/components/Header.js");
+
+var _Header2 = _interopRequireDefault(_Header);
+
+var _NavBar = __webpack_require__(/*! ./NavBar */ "./client/components/NavBar.js");
+
+var _NavBar2 = _interopRequireDefault(_NavBar);
 
 var _FlightForm = __webpack_require__(/*! ./FlightForm */ "./client/components/FlightForm.js");
 
@@ -1087,6 +1191,7 @@ var Main = function (_React$Component) {
 
         _this.handleChange = _this.handleChange.bind(_this);
         _this.handleSubmit = _this.handleSubmit.bind(_this);
+        _this.getCity = _this.getCity.bind(_this);
         return _this;
     }
 
@@ -1111,13 +1216,21 @@ var Main = function (_React$Component) {
             });
         }
     }, {
+        key: 'getCity',
+        value: function getCity(place) {
+            console.log('place', place);
+            this.props.getPointsOfInterest(place);
+        }
+    }, {
         key: 'render',
         value: function render() {
             console.log('MAIN', this.props.flight);
             return _react2.default.createElement(
                 'div',
                 null,
-                this.props.loading ? _react2.default.createElement(_Flights2.default, null) : _react2.default.createElement(
+                _react2.default.createElement(_Header2.default, null),
+                _react2.default.createElement(_NavBar2.default, null),
+                this.props.loading ? _react2.default.createElement(_Flights2.default, { getCity: this.getCity }) : _react2.default.createElement(
                     StyledBackground,
                     {
                         image: 'https://tce-live2.s3.amazonaws.com/media/media/be7a97e5-19d2-4df5-b348-a549dd5b3fe7.jpg',
@@ -1131,7 +1244,7 @@ var Main = function (_React$Component) {
                                 fontSize: 5,
                                 align: 'center',
                                 color: 'white' },
-                            'Looking for top things to do at your destination?'
+                            'Looking for places to go wherever you travel to?'
                         ),
                         _react2.default.createElement(
                             StyledText,
@@ -1159,6 +1272,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     return {
         sendFlightDetails: function sendFlightDetails(flight) {
             return dispatch((0, _store.getFlight)(flight));
+        },
+        getPointsOfInterest: function getPointsOfInterest(place) {
+            return dispatch((0, _store.getPointsOfInterest)(place));
         }
     };
 };
@@ -1424,7 +1540,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getFlight = exports.getPointsOfInterests = undefined;
+exports.getFlight = exports.getPointsOfInterest = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -1469,15 +1585,15 @@ var initialState = {
   /**
    * ACTION TYPES
    */
-};var GOT_POINTS_OF_INTERESTS = 'GOT_POINTS_OF_INTERESTS';
+};var GOT_POINTS_OF_INTEREST = 'GOT_POINTS_OF_INTEREST';
 var GOT_FLIGHT = 'GOT_FLIGHT';
 
 /**
  * ACTION CREATORS
  */
-var gotPointsOfInterests = function gotPointsOfInterests(attractions) {
+var gotPointsOfInterest = function gotPointsOfInterest(attractions) {
   return {
-    type: GOT_POINTS_OF_INTERESTS,
+    type: GOT_POINTS_OF_INTEREST,
     attractions: attractions
   };
 };
@@ -1492,7 +1608,7 @@ var gotFlight = function gotFlight(flight) {
 /**
  * THUNK CREATORS
  */
-var getPointsOfInterests = exports.getPointsOfInterests = function getPointsOfInterests(place) {
+var getPointsOfInterest = exports.getPointsOfInterest = function getPointsOfInterest(place) {
   return function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(dispatch) {
       var _ref2, data;
@@ -1502,29 +1618,31 @@ var getPointsOfInterests = exports.getPointsOfInterests = function getPointsOfIn
           switch (_context.prev = _context.next) {
             case 0:
               _context.prev = 0;
-              _context.next = 3;
-              return _axios2.default.post('/api/pointsofinterest', place);
 
-            case 3:
+              console.log('thunk', place);
+              _context.next = 4;
+              return _axios2.default.post('/api/pointsofinterest', { place: place });
+
+            case 4:
               _ref2 = _context.sent;
               data = _ref2.data;
 
-              dispatch(gotPointsOfInterests(data));
-              _context.next = 11;
+              dispatch(gotPointsOfInterest(data));
+              _context.next = 12;
               break;
 
-            case 8:
-              _context.prev = 8;
+            case 9:
+              _context.prev = 9;
               _context.t0 = _context['catch'](0);
 
               console.error(_context.t0);
 
-            case 11:
+            case 12:
             case 'end':
               return _context.stop();
           }
         }
-      }, _callee, undefined, [[0, 8]]);
+      }, _callee, undefined, [[0, 9]]);
     }));
 
     return function (_x) {
@@ -1568,7 +1686,7 @@ var rootReducer = function rootReducer() {
   var action = arguments[1];
 
   switch (action.type) {
-    case GOT_POINTS_OF_INTERESTS:
+    case GOT_POINTS_OF_INTEREST:
       return _extends({}, state, { pointsOfInterest: action.attractions });
     case GOT_FLIGHT:
       return _extends({}, state, { flightDetails: action.flight, loading: true });

@@ -34,6 +34,7 @@ const StyledIcon = styled(Icon)`
 
 const formatAirport = airport => airport.split('(')[1].slice(0, -1)
 const formatDate = date => date.slice(0, 5)
+const formatPlace = place => place.split(',')[0]
 
 class Flights extends React.Component {
     constructor() {
@@ -56,10 +57,10 @@ class Flights extends React.Component {
         let arriveAt = formatAirport(arrival || this.state.arrival)
         let leavingOn = formatDate(leaving || this.state.leaving)
         let returningOn = formatDate(returning || this.state.returning)
+        let city = formatPlace(arrival || this.state.arrival)
 
         return (
             <div>
-                <NavBar />
                 <Divider />
                 <StyledHug
                     m={15}
@@ -86,7 +87,7 @@ class Flights extends React.Component {
                             <StyledText fontSize={4} color='blue' bold>357</StyledText>
                             <Text mt={-31} ml={759} fontSize={1} color='blue'>.99</Text>
                             <Text mt={9} ml={716} fontSize={1} color='gray' normal>per person</Text>
-                            <Link to='/checkout'><StyledButton px={2}>View Details</StyledButton></Link>
+                            <Link to='/checkout'><StyledButton px={2} onClick={() => this.props.getCity(city)}>View Details</StyledButton></Link>
                         </StyledContainer>
     
                         <Divider width={3/4}/>
@@ -130,7 +131,7 @@ class Flights extends React.Component {
                         <Text mt={-26} ml={686} fontSize={4} color='green' bold>457</Text>
                         <Text mt={-31} ml={732} fontSize={1} color='green'>.20</Text>
                         <Text mt={9} ml={685} fontSize={1} color='gray' normal>per person</Text>
-                        <Link to='/checkout'><GreenButton mt={1} ml={663} px={2}>View Details</GreenButton></Link>
+                        <Link to='/checkout'><GreenButton mt={1} ml={663} px={2} onClick={() => this.props.getCity(city)}>View Details</GreenButton></Link>
                     </StyledContainer>
     
                     <Divider width={3/4}/>
@@ -181,7 +182,7 @@ class Flights extends React.Component {
                         <Text mt={-26} ml={686} fontSize={4} color='green' bold>424</Text>
                         <Text mt={-31} ml={736} fontSize={1} color='green'>.97</Text>
                         <Text mt={9} ml={685} fontSize={1} color='gray' normal>per person</Text>
-                        <Link to='/checkout'><GreenButton mt={1} ml={663} px={2}>View Details</GreenButton></Link>
+                        <Link to='/checkout'><GreenButton mt={1} ml={663} px={2} onClick={() => this.props.getCity(city)}>View Details</GreenButton></Link>
                     </StyledContainer>
     
                     <Divider width={3/4}/>

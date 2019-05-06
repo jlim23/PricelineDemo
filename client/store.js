@@ -23,14 +23,14 @@ const initialState = {
 /**
  * ACTION TYPES
  */
-const GOT_POINTS_OF_INTERESTS = 'GOT_POINTS_OF_INTERESTS'
+const GOT_POINTS_OF_INTEREST = 'GOT_POINTS_OF_INTEREST'
 const GOT_FLIGHT = 'GOT_FLIGHT'
 
 /**
  * ACTION CREATORS
  */
-const gotPointsOfInterests = attractions => ({
-  type: GOT_POINTS_OF_INTERESTS,
+const gotPointsOfInterest = attractions => ({
+  type: GOT_POINTS_OF_INTEREST,
   attractions
 })
 
@@ -42,10 +42,11 @@ const gotFlight = flight => ({
 /**
  * THUNK CREATORS
  */
-export const getPointsOfInterests = place => async (dispatch) => {
+export const getPointsOfInterest = place => async (dispatch) => {
   try {
-    const {data} = await axios.post('/api/pointsofinterest', place)
-    dispatch(gotPointsOfInterests(data))
+    console.log('thunk', place)
+    const {data} = await axios.post('/api/pointsofinterest', {place})
+    dispatch(gotPointsOfInterest(data))
   } catch (err) {
     console.error(err)
   }
@@ -64,7 +65,7 @@ export const getFlight = details => async (dispatch) => {
  */
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GOT_POINTS_OF_INTERESTS:
+    case GOT_POINTS_OF_INTEREST:
       return {...state, pointsOfInterest: action.attractions}
     case GOT_FLIGHT:
       return {...state, flightDetails: action.flight, loading: true}

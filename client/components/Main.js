@@ -2,8 +2,10 @@ import React from 'react'
 import { BackgroundImage, Text, Box, Heading } from 'pcln-design-system'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { getFlight } from '../store'
+import { getFlight, getPointsOfInterest } from '../store'
 
+import Header from './Header'
+import NavBar from './NavBar'
 import FlightForm from './FlightForm'
 import Flights from './Flights'
 
@@ -38,6 +40,7 @@ class Main extends React.Component {
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.getCity = this.getCity.bind(this)
     }
 
     handleChange(evt) {
@@ -60,13 +63,20 @@ class Main extends React.Component {
         })
     }
 
+    getCity(place) {
+        console.log('place', place)
+        this.props.getPointsOfInterest(place)
+    }
+
     render() {
         console.log('MAIN', this.props.flight)
         return (
             <div>
-                {
+                <Header />
+                <NavBar />
+                {   
                     this.props.loading
-                    ? <Flights/>
+                    ? <Flights getCity={this.getCity}/>
                     : <StyledBackground
                         image='https://tce-live2.s3.amazonaws.com/media/media/be7a97e5-19d2-4df5-b348-a549dd5b3fe7.jpg'
                         height='600px'>
@@ -75,7 +85,7 @@ class Main extends React.Component {
                                 fontSize={5}
                                 align='center'
                                 color='white'>
-                                Looking for top things to do at your destination?
+                                Looking for places to go wherever you travel to?
                             </StyledHeading>
                             <StyledText fontSize={4} color='white' normal>We compare thousands of deals to get you there</StyledText>
                         </Box>
@@ -93,7 +103,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    sendFlightDetails: (flight) => dispatch(getFlight(flight))
+    sendFlightDetails: (flight) => dispatch(getFlight(flight)),
+    getPointsOfInterest: (place) => dispatch(getPointsOfInterest(place))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main)
