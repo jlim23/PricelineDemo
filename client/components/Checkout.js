@@ -45,7 +45,8 @@ class Checkout extends React.Component {
                     text={<Text.span fontSize={2} bold>See what this city has to offer:</Text.span>}>
                     <Card p={4}>
                         {
-                            this.props.places.map(place => (
+                            this.props.places.length 
+                            ? this.props.places.map(place => (
                                 <div>
                                     <Icon
                                         name='ChevronRight'
@@ -54,6 +55,7 @@ class Checkout extends React.Component {
                                     <Text.span color='darkGray'>{place.name}</Text.span>
                                 </div>
                             ))
+                            : <Heading.h2 color='orange' textAlign='center'>No attractions found</Heading.h2>
                         }
                     </Card>
                 </StyledHug>

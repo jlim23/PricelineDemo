@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Container, Flex, FormField, Icon, Input, Label, Button, Select} from 'pcln-design-system'
+import {Box, Container, Flex, FormField, Icon, Input, Label, Button, Select, Tooltip} from 'pcln-design-system'
 import styled, {css} from 'styled-components'
 import { Link } from 'react-router-dom'
 
@@ -58,7 +58,15 @@ const StyledLabel = styled(Label)`
     `}
 `
 
+const Warning = styled(Tooltip)`
+    margin: 0 0 72px -215px;
+    width: 446px
+`
+
 const FlightForm = props => {
+    const { departure, arrival } = props.state
+    const isCorrectFormat = departure.includes(',') && departure.includes('(') && departure.includes(')') && arrival.includes(',') && arrival.includes('(') && arrival.includes(')')
+
     return (
         <div>
             <form onSubmit={props.handleSubmit}>
@@ -98,6 +106,13 @@ const FlightForm = props => {
                                 onChange={props.handleChange}
                             />
                         </FormField>
+                        <Warning
+                            top
+                            left
+                            color='white'
+                            bg='red'>
+                            <Icon name='warning' color='white' /> Location has to be in the format "City, State/Country (Airport)"
+                        </Warning>
                         <FormField>
                             <StyledLabel htmlFor='arrival'>Going to?</StyledLabel>
                             <Icon name='Arrival' size='20' color='blue'/>
@@ -165,7 +180,7 @@ const FlightForm = props => {
                                 <option>First</option>
                             </StyledSelect>
                         </FormField>
-                        <StyledButton m={2} size='large'>Find your flight</StyledButton>
+                        <StyledButton m={2} size='large' disabled={isCorrectFormat ? false : true}>Find your flight</StyledButton>
                     </Flex>
                 </StyledBox>
             </form>

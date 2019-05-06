@@ -44,7 +44,7 @@ const gotFlight = flight => ({
  */
 export const getPointsOfInterest = place => async (dispatch) => {
   try {
-    console.log('thunk', place)
+    console.log('hitting thunk', place)
     const {data} = await axios.post('/api/pointsofinterest', {place})
     dispatch(gotPointsOfInterest(data))
   } catch (err) {
