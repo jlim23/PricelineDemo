@@ -55,7 +55,9 @@ class Checkout extends React.Component {
                                     <Text.span color='darkGray'>{place.name}</Text.span>
                                 </div>
                             ))
-                            : <Heading.h2 color='darkOrange' textAlign='center'>No attractions found</Heading.h2>
+                            : this.props.loading ? 
+                                <Heading.h2 color='darkOrange' textAlign='center'>Loading attractions...</Heading.h2>
+                                : <Heading.h2 color='darkOrange' textAlign='center'>No attractions found</Heading.h2>
                         }
                     </Card>
                 </StyledHug>
@@ -66,6 +68,7 @@ class Checkout extends React.Component {
 
 const mapStateToProps = state => ({
     flight: state.flightDetails,
+    loading: state.loading,
     places: state.pointsOfInterest
 })
 

@@ -66,7 +66,7 @@ export const getFlight = details => async (dispatch) => {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GOT_POINTS_OF_INTEREST:
-      return {...state, pointsOfInterest: action.attractions}
+      return {...state, pointsOfInterest: action.attractions, loading: true}
     case GOT_FLIGHT:
       return {...state, flightDetails: action.flight, loading: true}
     default:
