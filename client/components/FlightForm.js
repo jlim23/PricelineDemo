@@ -59,8 +59,8 @@ const StyledLabel = styled(Label)`
 `
 
 const Warning = styled(Tooltip)`
-    margin: 0 0 72px -215px;
-    width: 446px
+    margin: 0px 0 74px -243px;
+    width: 517px
 `
 
 const FlightForm = props => {
@@ -101,7 +101,7 @@ const FlightForm = props => {
                                 id='departure'
                                 name='departure'
                                 value={props.state.departure}
-                                placeholder='New York City, NY (JFK)'
+                                placeholder='e.g. New York City, NY (JFK)'
                                 m={2}
                                 onChange={props.handleChange}
                             />
@@ -111,7 +111,7 @@ const FlightForm = props => {
                             left
                             color='white'
                             bg='red'>
-                            <Icon name='warning' color='white' /> Location has to be in the format "City, State/Country (Airport)"
+                            <Icon name='warning' color='white' /> Please enter a City, State or Country and Airport (e.g. Seattle, WA (SEA))
                         </Warning>
                         <FormField>
                             <StyledLabel htmlFor='arrival'>Going to?</StyledLabel>
@@ -120,7 +120,7 @@ const FlightForm = props => {
                                 id='arrival'
                                 name='arrival'
                                 value={props.state.arrival}
-                                placeholder='New Haven, CT (HVN)'
+                                placeholder='e.g. New Haven, CT (HVN)'
                                 m={2}
                                 onChange={props.handleChange}
                             />
@@ -146,7 +146,7 @@ const FlightForm = props => {
                                 id='returning'
                                 name='returning'
                                 value={props.state.returning}
-                                placeholder='05/16/2019'
+                                placeholder='05/13/2019'
                                 m={2}
                                 onChange={props.handleChange}
                             />

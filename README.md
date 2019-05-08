@@ -8,7 +8,7 @@ Mini web app to find attractions based on where you're traveling to
 
 * Pcln-Design-System (https://github.com/pricelinelabs/design-system)
 * React-Redux
-* Styled-Components
+* Styled Components
 * Foursquare Places API (https://developer.foursquare.com/places-api)
 
 ## Setup
