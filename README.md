@@ -4,7 +4,7 @@ Project deployed on Heroku: https://priceline-demo.herokuapp.com
 
 Mini web app to find attractions based on where you're traveling to
 
-## Built With
+## Technologies Used
 
 * Pcln-Design-System (https://github.com/pricelinelabs/design-system)
 * React-Redux

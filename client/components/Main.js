@@ -64,12 +64,10 @@ class Main extends React.Component {
     }
 
     getCity(place) {
-        console.log('place', place)
         this.props.getPointsOfInterest(place)
     }
 
     render() {
-        console.log('MAIN', this.props.flight)
         return (
             <div>
                 <Header />

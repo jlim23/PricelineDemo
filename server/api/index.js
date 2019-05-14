@@ -12,7 +12,6 @@ router.post('/pointsofinterest', async (req, res, next) => {
         name: result.venue.name
       }
     })
-    console.log('results', results)
     res.json(results)
   } catch (err) {
     next(err)

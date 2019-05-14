@@ -51,7 +51,6 @@ class Flights extends React.Component {
     }
 
     render () {
-        console.log('FLIGHTS', this.props.flight)
         const { departure, arrival, leaving, returning } = this.props.flight
         let departFrom = formatAirport(departure || this.state.departure) || 'New York'
         let arriveAt = formatAirport(arrival || this.state.arrival)

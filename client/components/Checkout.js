@@ -14,7 +14,6 @@ const formatPlace = place => place.split(',')[0]
 
 class Checkout extends React.Component {
     render () {
-        console.log('CHECKOUT', this.props.flight)
         const { arrival } = this.props.flight
         let city = formatPlace(arrival)
 
